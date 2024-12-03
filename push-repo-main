@@ -1,0 +1,10 @@
+#!/bin/sh
+Description=$1;
+if [ -z "$Description" ]; then
+  Description="Push feito em `date +%Y-%m-%d" "%H:%M:%S` por $USER";
+fi
+
+#find .history -type f -mtime +90 -exec rm {} \;
+chmod -Rf 0755 .
+git add . && git commit -a -m "$Description";
+git push -v origin main;
